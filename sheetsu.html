@@ -30,12 +30,7 @@
 <script>
 	function successFunc1(data) {
 		data.forEach(function(thing, i) {
-		document.getElementById("data1").innerHTML += "<p>" + thing.fruit + "</p>"
-		});
-	}
-	function successFunc2(data) {
-		data.forEach(function(thing, i) {
-		document.getElementById("data2").innerHTML += "<p>" + thing.name + "</p>"
+		document.getElementById("data1").innerHTML += "<p>" + thing.fruit + "</p>";
 		});
 	}
 	function errorFunc(e) {
@@ -43,6 +38,18 @@
 	}
 
 	Sheetsu.read("https://sheetsu.com/apis/v1.0su/5b060c9b3917", {}).then(successFunc1, errorFunc);
+</script>
+
+<script>
+	function successFunc2(data) {
+		data.forEach(function(thing, i) {
+		document.getElementById("data2").innerHTML += "<p>" + thing.name + "</p>";
+		});
+	}
+	function errorFunc(e) {
+	  console.log(e);
+	}
+
 	Sheetsu.read("https://sheetsu.com/apis/v1.0su/f549fbdef423", {}).then(successFunc2, errorFunc);
 </script>
 
