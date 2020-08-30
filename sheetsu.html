@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheetsu | Anzhuo Wang</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" href="files/favicon.ico">
+	<script src="//script.sheetsu.com/"></script>
+</head>
+
+<body>
+	<h1>Sheetsu</h1>
+	<hr>
+	<h4>Results</h4>
+	<div id="data1"></div>
+	<div id="data2"></div>
+	<br>
+	<h4>Info</h4>
+	<p>
+		<a href="https://sheetsu.com/apis/v1.0su/5b060c9b3917">Sheet #1 API</a>
+		<a href="https://sheetsu.com/apis/v1.0su/f549fbdef423">Sheet # 2 API</a>
+		<a href="https://docs.google.com/spreadsheets/d/1Ocponj8GaQPe4lT5sQ5N59IKJERWcrn_rLtQ5xpb4JA/edit?usp=sharing">Sheet #1</a>
+		<a href="https://docs.google.com/spreadsheets/d/19FXijMT0xSIH1r-2cYFO-IRksoh3wZECXOEFXep7kKY/edit?usp=sharing">Sheet #2</a>
+	</p>
+	<br>
+	<strong><a href="index.html"  align="center">Go Back</a></strong>
+</body>
+
+<script>
+	function successFunc1(data) {
+		data.forEach(function(thing, i) {
+		document.getElementById("data1").innerHTML += "<p>" + thing.fruit + "</p>"
+		});
+	}
+	function successFunc2(data) {
+		data.forEach(function(thing, i) {
+		document.getElementById("data2").innerHTML += "<p>" + thing.name + "</p>"
+		});
+	}
+	function errorFunc(e) {
+	  console.log(e);
+	}
+
+	Sheetsu.read("https://sheetsu.com/apis/v1.0su/5b060c9b3917", {sheet: "resources"}).then(successFunc1, errorFunc);
+	Sheetsu.read("https://sheetsu.com/apis/v1.0su/f549fbdef423", {sheet: "resources"}).then(successFunc2, errorFunc);
+</script>
+
+</html>
