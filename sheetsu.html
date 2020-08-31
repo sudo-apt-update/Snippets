@@ -10,21 +10,20 @@
 </head>
 
 <body>
-	<h1>Sheetsu</h1>
+	<h1>Results</h1>
 	<hr>
-	<h4>Results</h4>
-	<div id="data1"></div>
-	<div id="data2"></div>
+	<h4>Display</h4>
+	<div id="data"></div>
 	<br>
 	<h4>Info</h4>
 	<p>
-		<a href="https://sheetsu.com/apis/v1.0su/5b060c9b3917">Sheet #1 API</a>
-		<br>
-		<a href="https://sheetsu.com/apis/v1.0su/f549fbdef423">Sheet #2 API</a>
-		<br>
 		<a href="https://docs.google.com/spreadsheets/d/1Ocponj8GaQPe4lT5sQ5N59IKJERWcrn_rLtQ5xpb4JA/edit?usp=sharing">Sheet #1</a>
 		<br>
 		<a href="https://docs.google.com/spreadsheets/d/19FXijMT0xSIH1r-2cYFO-IRksoh3wZECXOEFXep7kKY/edit?usp=sharing">Sheet #2</a>
+		<br>
+		<a href="https://sheetsu.com/apis/v1.0su/5b060c9b3917">Sheet #1 API</a>
+		<br>
+		<a href="https://sheetsu.com/apis/v1.0su/f549fbdef423">Sheet #2 API</a>
 	</p>
 	<br>
 	<strong><a href="index.html"  align="center">Go Back</a></strong>
@@ -32,16 +31,23 @@
 
 <script>
 	function successFunc(data) {
-		data.forEach(function(thing, i) {
-		document.getElementById("data1").innerHTML += "<p>" + thing.col1 + "</p>";
-		});
+		let column = "col"
+		for (let k = 1; k <= 8; k++) {
+			column += k;
+			data.forEach(function(thing, i) {
+			document.getElementById("data").innerHTML += "<p>" + thing.column + "</p>";
+			});
+			column = column.slice(0, 3);
+		};
 	}
 	function errorFunc(e) {
 	  console.log(e);
 	}
 
-	Sheetsu.read("https://sheetsu.com/apis/v1.0su/5b060c9b3917", {}).then(successFunc, errorFunc);
+	// sheet #1 will be listed in entirety (set to 8 columns)
 	Sheetsu.read("https://sheetsu.com/apis/v1.0su/f549fbdef423", {}).then(successFunc, errorFunc);
+	// before sheet #2
+	Sheetsu.read("https://sheetsu.com/apis/v1.0su/5b060c9b3917", {}).then(successFunc, errorFunc);
 </script>
 
 </html>
