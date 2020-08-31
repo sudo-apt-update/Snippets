@@ -31,14 +31,30 @@
 
 <script>
 	function successFunc(data) {
-		let column = "col"
-		for (let k = 1; k <= 8; k++) {
-			column += k;
-			data.forEach(function(thing, i) {
-			document.getElementById("data").innerHTML += "<p>" + thing.column + "</p>";
-			});
-			column = column.slice(0, 3);
-		};
+		data.forEach(function(thing, i) {
+			document.getElementById("data").innerHTML += "<p>" + thing.col1 + "</p>";
+		});
+		data.forEach(function(thing, i) {
+			document.getElementById("data").innerHTML += "<p>" + thing.col2 + "</p>";
+		});
+		data.forEach(function(thing, i) {
+			document.getElementById("data").innerHTML += "<p>" + thing.col3 + "</p>";
+		});
+		data.forEach(function(thing, i) {
+			document.getElementById("data").innerHTML += "<p>" + thing.col4 + "</p>";
+		});
+		data.forEach(function(thing, i) {
+			document.getElementById("data").innerHTML += "<p>" + thing.col5 + "</p>";
+		});
+		data.forEach(function(thing, i) {
+			document.getElementById("data").innerHTML += "<p>" + thing.col6 + "</p>";
+		});
+		data.forEach(function(thing, i) {
+			document.getElementById("data").innerHTML += "<p>" + thing.col7 + "</p>";
+		});
+		data.forEach(function(thing, i) {
+			document.getElementById("data").innerHTML += "<p>" + thing.col8 + "</p>";
+		});
 	}
 	function errorFunc(e) {
 	  console.log(e);
